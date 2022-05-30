@@ -136,7 +136,10 @@ class Parser {
                             release.add("2016/08")
                             release.add("2019/01")
                         }
-                        "652" -> release.add("2016/12")
+                        "652" -> {
+                            release.add("2016/12")
+                            kvMap["price"] = "4500"
+                        }
                         "1325" -> release.add("2020/12")
                         else -> {
                             val dateList = parseReleaseDate(kvMap["release"]!!)
@@ -145,6 +148,13 @@ class Parser {
                             }
                         }
                     }
+                }
+                when (number) {
+                    "267" -> kvMap["price"] = "3909"
+                    "378b" -> kvMap["price"] = "5500"
+                    "819" -> kvMap["price"] = "4800"
+                    "1291" -> kvMap["price"] = "5500"
+                    "1672b" -> kvMap["price"] = "5900"
                 }
             }
             return Nendoroid(
