@@ -198,7 +198,9 @@ class Parser {
                 .split("-")
             val result = mutableListOf<String>()
             list.forEach {
-                val date = if (it.startsWith("/")) { it.substring(1) } else it
+                val date = if (it.startsWith("/")) {
+                    it.substring(1)
+                } else it
                 when (date.length) {
                     6 -> {
                         var str = date.substring(0, date.length - 1)

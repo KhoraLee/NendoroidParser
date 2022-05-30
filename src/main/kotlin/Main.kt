@@ -27,10 +27,15 @@ fun updateNendoroids() {
         val parsedNendoroid = parser.gsc.parseNendoroid(diskNendoroid)
         diskNendoroid.merge(parsedNendoroid)
         diskNendoroid.writeOnDisk()
-        println("[${String.format("%04d", current.get())} / $total] ${diskNendoroid.num}\t(Thread : " + Thread.currentThread().name + ")")
+        println(
+            """[${String.format("%04d", current.get())} / $total]
+                | ${diskNendoroid.num}\t\t
+                | (Thread : " + Thread.currentThread().name + ")""".trimMargin()
+        )
         Thread.sleep(50)
     }
 }
+
 fun checkAllDB() {
     val nendoroidList = getAllNendoroids()
     val list = Collections.synchronizedList(ArrayList<String>())
@@ -50,7 +55,7 @@ private fun getAllNendoroids(path: String = ""): ArrayList<File> {
     val path = File(path.ifEmpty { "D:\\NendoroidDB\\Nendoroid" })
     val fList = path.listFiles()
     fList.forEach {
-        if(it.isDirectory) {
+        if (it.isDirectory) {
             nendoroidList.addAll(getAllNendoroids(it.path))
             return@forEach
         }
