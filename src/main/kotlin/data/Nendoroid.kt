@@ -15,7 +15,7 @@ data class Nendoroid(
     var price: Int = -1,
     var release_date: MutableSet<String> = mutableSetOf(),
     var image: String = "",
-    var gender: String = "",
+    var gender: Gender? = null,
     var set: Int? = null
 ) {
     companion object {
@@ -67,7 +67,7 @@ data class Nendoroid(
         series.putAll(nendoroid.series)
         if (price == -1) price = nendoroid.price
         release_date.addAll(nendoroid.release_date)
-        if (gender.isEmpty()) gender = nendoroid.gender
+        if (gender == null) gender = nendoroid.gender
     }
 
     fun addSetInfo(set: Int) {

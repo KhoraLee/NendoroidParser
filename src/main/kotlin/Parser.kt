@@ -1,3 +1,4 @@
+import data.Gender.*
 import data.Nendoroid
 import data.NendoroidSet
 import org.apache.commons.csv.CSVFormat
@@ -252,14 +253,14 @@ class Parser {
     class CSV {
         fun parseNendoroid(path: String) {
             val genderMap = mapOf(
-                "남" to "M",
-                "여" to "F",
-                "남, 여" to "M&F",
-                "없음" to "",
-                "양성" to "androgyny",
-                "다요" to "dayo",
-                "?" to "?",
-                "" to ""
+                "남" to MALE,
+                "여" to FEMALE,
+                "남, 여" to MALE_AND_FEMALE,
+                "없음" to null,
+                "양성" to ANDROGYNY,
+                "다요" to DAYO,
+                "?" to UNKNOWN,
+                "" to null
             )
             val csvParser = loadCSV(path)
             for (csvRecord in csvParser) {
@@ -269,7 +270,7 @@ class Parser {
                     num = data[0],
                     name = mutableMapOf(KOREAN to data[1]),
                     series = mutableMapOf(KOREAN to data[2]),
-                    gender = genderMap[data[3]]!!,
+                    gender = genderMap[data[3]],
                 )
                 val nendoroidFromDisk = Nendoroid.readNendoroid(data[0])
                 if (nendoroidFromDisk == null) {
