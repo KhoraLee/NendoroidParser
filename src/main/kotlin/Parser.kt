@@ -1,4 +1,5 @@
-import Data.Nendoroid
+import data.Nendoroid
+import data.NendoroidSet
 import org.apache.commons.csv.CSVFormat
 import org.apache.commons.csv.CSVParser
 import org.apache.commons.csv.CSVRecord
@@ -52,6 +53,11 @@ class Parser {
             val path = Paths.get(basePath, folderName)
             if (path.notExists()) Files.createDirectories(path)
         }
+        val path = Paths.get(basePath, "Set")
+        if (path.notExists()) Files.createDirectories(path)
+    }
+
+    fun copyPreJSON() {
         val preDir = File("pre-Nendoroid")
         copyDirectory(preDir, File(basePath))
     }
@@ -273,6 +279,25 @@ class Parser {
                 nendoroidFromDisk.merge(nendoroid)
                 nendoroidFromDisk.writeOnDisk()
             }
+        }
+
+        fun parseNendoroidSet(path: String): MutableList<NendoroidSet> {
+            val setList = mutableListOf<NendoroidSet>()
+            val setMap = mutableMapOf<String, MutableList<String>>()
+            val csvParser = loadCSV(path)
+            for (csvRecord in csvParser) {
+                val data = parseCSV(csvRecord)
+                if (data[1] == "" || data[4] == "") continue
+                if (!setMap.keys.contains(data[4])) {
+                    setMap[data[4]] = mutableListOf(data[0])
+                } else {
+                    setMap[data[4]]!!.add(data[0])
+                }
+            }
+            setMap.forEach { (key, value) ->
+                setList.add(NendoroidSet(key, value))
+            }
+            return setList
         }
 
         private fun loadCSV(path: String): CSVParser {

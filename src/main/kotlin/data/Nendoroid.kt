@@ -1,4 +1,4 @@
-package Data
+package data
 
 import com.google.gson.GsonBuilder
 import java.io.File
@@ -16,7 +16,7 @@ data class Nendoroid(
     var release_date: MutableSet<String> = mutableSetOf(),
     var image: String = "",
     var gender: String = "",
-//    var set: String = ""
+    var set: Int? = null
 ) {
     companion object {
         private const val basePath = "D:\\NendoroidDB\\Nendoroid"
@@ -61,21 +61,19 @@ data class Nendoroid(
         """.trimIndent()
     }
 
-    fun merge(nendoroid: Nendoroid): Boolean {
-        if (num != nendoroid.num) return false
+    fun merge(nendoroid: Nendoroid) {
+        if (num != nendoroid.num) return
         name.putAll(nendoroid.name)
         series.putAll(nendoroid.series)
         if (price == -1) price = nendoroid.price
         release_date.addAll(nendoroid.release_date)
         if (gender.isEmpty()) gender = nendoroid.gender
-        return true
     }
 
-//    fun addSetInfo(set: String): Boolean {
-//        if (set.isNotEmpty()) return false
-//        this.set = set
-//        return true
-//    }
+    fun addSetInfo(set: Int) {
+        if (this.set != null) return
+        this.set = set
+    }
 
     fun writeOnDisk() {
         writeNendoroid(this)

@@ -1,22 +1,39 @@
-import Data.Nendoroid
+import data.Nendoroid
+import data.NendoroidSet
 import java.io.File
 import java.util.*
 import java.util.concurrent.atomic.AtomicInteger
 
+val parser = Parser()
 fun main() {
-    val parser = Parser()
     parser.init() // 폴더 생성
+    parser.copyPreJSON() // 파싱이 제한되는 넨도들 복사
     // 각각 페이지에 누락되는 케이스들이 있어 겹치는 케이스가 많으나 각각 수행함.
     // 그럼에도 불구하고 없는 번호 : 1522-DX, 1694, 1695, 1871, 1872
     parser.gsc.parseByNumber() // 번호별 페이지 파싱
     parser.gsc.parseByYear() // 년도별 페이지 파싱
     parser.csv.parseNendoroid("sheet.csv") // 넨겔 시트 DB 부분 추출
     updateNendoroids() // 공홈 각 넨도별 페이지 파싱
-//    checkAllDB()
+    updateSetInfo()
+    checkAllDB()
 }
 
+fun updateSetInfo() {
+    val setList = parser.csv.parseNendoroidSet("sheet.csv")
+    var serial = 1
+    setList.forEach { set ->
+        NendoroidSet.writeSet(set, serial)
+        set.list.forEach { number ->
+            val nendoroid = Nendoroid.readNendoroid(number)
+            if (nendoroid != null) {
+                nendoroid.addSetInfo(serial)
+                Nendoroid.writeNendoroid(nendoroid)
+            }
+        }
+        serial++
+    }
+}
 fun updateNendoroids() {
-    val parser = Parser()
     val nendoroidList = getAllNendoroids()
     val total = nendoroidList.size
     val current = AtomicInteger()
@@ -42,9 +59,9 @@ fun updateNendoroids() {
 fun checkAllDB() {
     val nendoroidList = getAllNendoroids()
     val list = Collections.synchronizedList(ArrayList<String>())
-    nendoroidList.parallelStream().forEach { it ->
+    nendoroidList.parallelStream().forEach {
         val dn = Nendoroid.readNendoroid(it.nameWithoutExtension) ?: return@forEach
-        if (dn.price == -1 || dn.price == 0) {
+        if (dn.set == 0) {
             list.add(dn.num)
         }
     }
@@ -58,7 +75,8 @@ private fun getAllNendoroids(path: String = ""): ArrayList<File> {
     val path = File(path.ifEmpty { "D:\\NendoroidDB\\Nendoroid" })
     val fList = path.listFiles()
     fList.forEach {
-        if (it.isDirectory) {
+        if (it.isDirectory && it.name != "Set")
+        {
             nendoroidList.addAll(getAllNendoroids(it.path))
             return@forEach
         }
@@ -66,4 +84,3 @@ private fun getAllNendoroids(path: String = ""): ArrayList<File> {
     }
     return nendoroidList
 }
-
