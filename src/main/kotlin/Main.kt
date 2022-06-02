@@ -27,11 +27,14 @@ fun updateNendoroids() {
         val parsedNendoroid = parser.gsc.parseNendoroid(diskNendoroid)
         diskNendoroid.merge(parsedNendoroid)
         diskNendoroid.writeOnDisk()
-        println(
-            """[${String.format("%04d", current.get())} / $total]
-                | ${diskNendoroid.num}\t\t
-                | (Thread : " + Thread.currentThread().name + ")""".trimMargin()
+        val logMsg = String.format(
+            "[%04d / %d] %-8s Thread : (%s)",
+            current.get(),
+            total,
+            diskNendoroid.num,
+            Thread.currentThread().name
         )
+        println(logMsg)
         Thread.sleep(50)
     }
 }
