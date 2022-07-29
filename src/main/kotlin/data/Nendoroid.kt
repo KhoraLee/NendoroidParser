@@ -66,7 +66,7 @@ data class Nendoroid(
         name.putAll(nendoroid.name)
         series.putAll(nendoroid.series)
         if (price == -1) price = nendoroid.price
-        release_date.addAll(nendoroid.release_date)
+        if (!nendoroid.release_date.isEmpty()) release_date = nendoroid.release_date
         if (gender == null) gender = nendoroid.gender
     }
 

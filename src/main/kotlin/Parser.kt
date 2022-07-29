@@ -3,6 +3,7 @@ import data.Nendoroid
 import data.NendoroidSet
 import org.apache.commons.csv.CSVFormat
 import org.apache.commons.csv.CSVParser
+import org.apache.commons.csv.CSVPrinter
 import org.apache.commons.csv.CSVRecord
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Element
@@ -48,7 +49,7 @@ class Parser {
     }
 
     fun init() {
-        val ranges = (0..18).toList()
+        val ranges = (0..20).toList()
         ranges.forEach {
             val folderName = String.format("%04d-%04d", it * 100, (it + 1) * 100 - 1)
             val path = Paths.get(basePath, folderName)
@@ -88,7 +89,7 @@ class Parser {
 
         fun parseByNumber(locale: Locale = JAPANESE) {
             val numSet = mutableListOf<String>()
-            for (i in 0..17) {
+            for (i in 0..19) {
                 numSet.add(String.format("%03d-%d", if (i != 0) i * 100 + 1 else 0, (i + 1) * 100))
             }
             println("fun parseGoodSmileNumber() - Current Locale is $locale")
@@ -115,9 +116,14 @@ class Parser {
         }
 
         fun parseNendoroid(nendoroid: Nendoroid): Nendoroid {
-            val nendoroidJA = parseNendoroid(nendoroid.num, nendoroid.gsc_productNum, JAPANESE)!!
-            val nendoroidEN = parseNendoroid(nendoroid.num, nendoroid.gsc_productNum, ENGLISH) ?: return nendoroidJA
-            nendoroidJA.merge(nendoroidEN)
+            val nendoroidJA = parseNendoroid(nendoroid.num, nendoroid.gsc_productNum, JAPANESE)
+            val nendoroidEN = parseNendoroid(nendoroid.num, nendoroid.gsc_productNum, ENGLISH)
+            if(nendoroidJA == null && nendoroidEN != null) {
+                return nendoroidEN
+            } else if(nendoroidJA != null && nendoroidEN == null) {
+                return nendoroidJA
+            }
+            nendoroidJA!!.merge(nendoroidEN!!)
             return nendoroidJA
         }
 
@@ -130,6 +136,7 @@ class Parser {
             val document = try {
                 Jsoup.connect(URL).get()
             } catch (e: Exception) {
+                if (locale == JAPANESE) System.err.println("[Error] : $number $gsc doesn't exist")
                 return null
             }
             val elements = document.select("div.itemDetail").select("div.detailBox>dl")
@@ -309,15 +316,29 @@ class Parser {
 
         private fun parseCSV(csv: CSVRecord): List<String> {
             //15,14,,,,스즈미야 하루히 바니걸 세트,,스즈미야 하루히의 우울,,여,,"7,333",,스즈미야 하루히의 우울,14
-            val number = csv.get(1)
+            val number = csv.get(0)
             val numOnly = number.replace("\\D".toRegex(), "").toIntOrNull() ?: -1
             val strOnly = number.replace("\\d".toRegex(), "").replace("dx", "DX")
             val formatted = String.format("%03d", numOnly) + strOnly
-            val name = csv.get(5)
-            val series = csv.get(7)
-            val gender = csv.get(9)
-            val setName = csv.get(13)
+            val name = csv.get(1)
+            val series = csv.get(2)
+            val gender = csv.get(3)
+            val setName = csv.get(4)
             return mutableListOf(formatted, name, series, gender, setName)
+        }
+
+        fun createParsedCSV() {
+            try {
+                val printer = CSVPrinter(FileWriter("parsed.csv"), CSVFormat.DEFAULT)
+                val csvParser = parser.csv.loadCSV("sheet.csv")
+                for (csvRecord in csvParser) {
+                    val data = parser.csv.parseCSV(csvRecord)
+                    printer.printRecord(data)
+                }
+                printer.close()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
     }
 
