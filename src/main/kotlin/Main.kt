@@ -1,14 +1,12 @@
-import data.Nendoroid
-import data.NendoroidSet
-import org.apache.commons.csv.CSVFormat
-import org.apache.commons.csv.CSVPrinter
+import data.*
+import extensions.load
 import java.io.File
-import java.io.FileWriter
 import java.util.*
 import java.util.concurrent.atomic.AtomicInteger
 
 
 val parser = Parser()
+const val basePath = "NendoroidDB"
 fun main() {
     parser.init() // 폴더 생성
     parser.copyPreJSON() // 파싱이 제한되는 넨도들 복사
@@ -28,12 +26,13 @@ fun updateSetInfo() {
     val setList = parser.csv.parseNendoroidSet("parsed.csv")
     var serial = 1
     setList.forEach { set ->
-        NendoroidSet.writeSet(set, serial)
+        set.serial = serial.toString()
+        set.save()
         set.list.forEach { number ->
-            val nendoroid = Nendoroid.readNendoroid(number)
+            val nendoroid: Nendoroid? = Nendoroid(number).load()
             if (nendoroid != null) {
                 nendoroid.addSetInfo(serial)
-                Nendoroid.writeNendoroid(nendoroid)
+                nendoroid.save()
             }
         }
         serial++
@@ -47,10 +46,10 @@ fun updateNendoroids() {
     nendoroidList.parallelStream().forEach {
         current.incrementAndGet()
         if (it.nameWithoutExtension == "1538") return@forEach // 특설페이지로 파싱 불가
-        val diskNendoroid = Nendoroid.readNendoroid(it.nameWithoutExtension) ?: return@forEach
+        val diskNendoroid: Nendoroid = Nendoroid(it.nameWithoutExtension).load() ?: return@forEach
         val parsedNendoroid = parser.gsc.parseNendoroid(diskNendoroid)
         diskNendoroid.merge(parsedNendoroid)
-        diskNendoroid.writeOnDisk()
+        diskNendoroid.save()
         val logMsg = String.format(
             "[%02.2f%%] %-8s Thread : (%s)",
             (current.get().toFloat() * 100 / total),
@@ -66,7 +65,7 @@ fun checkAllDB() {
     val nendoroidList = getAllNendoroids()
     val list = Collections.synchronizedList(ArrayList<String>())
     nendoroidList.parallelStream().forEach {
-        val dn = Nendoroid.readNendoroid(it.nameWithoutExtension) ?: return@forEach
+        val dn:Nendoroid = Nendoroid(it.nameWithoutExtension).load() ?: return@forEach
         if (dn.set == 0) {
             list.add(dn.num)
         }

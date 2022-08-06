@@ -1,9 +1,7 @@
 package data
 
-import com.google.gson.GsonBuilder
+import basePath
 import java.io.File
-import java.io.FileReader
-import java.io.FileWriter
 import java.nio.file.Paths
 import java.util.*
 
@@ -17,38 +15,16 @@ data class Nendoroid(
     var image: String = "",
     var gender: Gender? = null,
     var set: Int? = null
-) {
-    companion object {
-        private const val basePath = "D:\\NendoroidDB\\Nendoroid"
-        private val gson = GsonBuilder().setPrettyPrinting().create()
+) : DataWritable {
 
-        fun readNendoroid(number: String): Nendoroid? {
-            val file = findNendoroidFile(number)
-            return if (file != null && file.exists()) {
-                val fr = FileReader(file)
-                gson.fromJson(fr, Nendoroid::class.java)
-            } else {
-                null
-            }
-        }
+    override val serial  = num
 
-        fun writeNendoroid(nendoroid: Nendoroid) {
-            val file = findNendoroidFile(nendoroid.num) ?: return
-            val fw = FileWriter(file)
-            gson.toJson(nendoroid, fw)
-            fw.flush()
-            fw.close()
-        }
-
-        private fun findNendoroidFile(number: String): File? {
-            val range = (number.replace("\\D".toRegex(), "").toIntOrNull() ?: return null) / 100
-            val folderName = String.format("%04d-%04d", range * 100, (range + 1) * 100 - 1)
-            val path = Paths.get(basePath, folderName)
-            return File(path.toFile(), "$number.json")
-        }
-
+    override fun find(): File {
+        val range = (serial.replace("\\D".toRegex(), "").toIntOrNull() ?: -1) / 100
+        val folderName = String.format("%04d-%04d", range * 100, (range + 1) * 100 - 1)
+        val path = Paths.get(basePath, folderName)
+        return File(path.toFile(), "$serial.json")
     }
-
     override fun toString(): String {
         return """
             번호 : $num
@@ -66,16 +42,12 @@ data class Nendoroid(
         name.putAll(nendoroid.name)
         series.putAll(nendoroid.series)
         if (price == -1) price = nendoroid.price
-        if (!nendoroid.release_date.isEmpty()) release_date = nendoroid.release_date
+        if (nendoroid.release_date.isNotEmpty()) release_date = nendoroid.release_date
         if (gender == null) gender = nendoroid.gender
     }
 
     fun addSetInfo(set: Int) {
         if (this.set != null) return
         this.set = set
-    }
-
-    fun writeOnDisk() {
-        writeNendoroid(this)
     }
 }

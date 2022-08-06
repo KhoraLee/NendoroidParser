@@ -1,3 +1,5 @@
+package extensions
+
 fun Char.fullToHalf(): Char {
     return this - 0xfee0
 }

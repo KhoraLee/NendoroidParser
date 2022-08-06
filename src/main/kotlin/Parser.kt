@@ -1,6 +1,9 @@
+import extensions.fullToHalf
+import extensions.isFullWidth
 import data.Gender.*
 import data.Nendoroid
 import data.NendoroidSet
+import extensions.load
 import org.apache.commons.csv.CSVFormat
 import org.apache.commons.csv.CSVParser
 import org.apache.commons.csv.CSVPrinter
@@ -15,7 +18,6 @@ import java.util.Locale.*
 import kotlin.io.path.notExists
 
 class Parser {
-    private val basePath = "D:\\NendoroidDB\\Nendoroid"
 
     val gsc = GSC()
     val csv = CSV()
@@ -78,11 +80,11 @@ class Parser {
                     .select("div.hitBox>a")
                 elements.forEach { ele ->
                     val nendoroid = parseNendoroid(ele, locale)
-                    val nendoroidFromDisk = Nendoroid.readNendoroid(nendoroid.num)
+                    val nendoroidFromDisk: Nendoroid? = Nendoroid(nendoroid.num).load()
                     if (nendoroidFromDisk != null) {
                         nendoroid.merge(nendoroidFromDisk)
                     }
-                    Nendoroid.writeNendoroid(nendoroid)
+                    nendoroid.save()
                 }
             }
         }
@@ -106,11 +108,11 @@ class Parser {
                     .select("div.hitBox>a")
                 elements.forEach { ele ->
                     val nendoroid = parseNendoroid(ele, locale)
-                    val nendoroidFromDisk = Nendoroid.readNendoroid(nendoroid.num)
+                    val nendoroidFromDisk: Nendoroid? = Nendoroid(nendoroid.num).load()
                     if (nendoroidFromDisk != null) {
                         nendoroid.merge(nendoroidFromDisk)
                     }
-                    Nendoroid.writeNendoroid(nendoroid)
+                    nendoroid.save()
                 }
             }
         }
@@ -279,13 +281,13 @@ class Parser {
                     series = mutableMapOf(KOREAN to data[2]),
                     gender = genderMap[data[3]],
                 )
-                val nendoroidFromDisk = Nendoroid.readNendoroid(data[0])
+                val nendoroidFromDisk: Nendoroid? = Nendoroid(data[0]).load()
                 if (nendoroidFromDisk == null) {
                     System.err.println("${data[0]} is not on Disk")
                     continue
                 }
                 nendoroidFromDisk.merge(nendoroid)
-                nendoroidFromDisk.writeOnDisk()
+                nendoroidFromDisk.save()
             }
         }
 
@@ -303,7 +305,7 @@ class Parser {
                 }
             }
             setMap.forEach { (key, value) ->
-                setList.add(NendoroidSet(key, value))
+                setList.add(NendoroidSet(setName = key, list = value))
             }
             return setList
         }
