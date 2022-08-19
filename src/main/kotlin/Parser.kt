@@ -6,10 +6,10 @@ import data.NendoroidSet
 import extensions.load
 import org.apache.commons.csv.CSVFormat
 import org.apache.commons.csv.CSVParser
-import org.apache.commons.csv.CSVPrinter
 import org.apache.commons.csv.CSVRecord
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Element
+import utils.DirUtil
 import java.io.*
 import java.nio.file.Files
 import java.nio.file.Paths
@@ -21,34 +21,6 @@ class Parser {
 
     val gsc = GSC()
     val csv = CSV()
-    private fun copyDirectory(sourceDirectory: File, destinationDirectory: File) {
-        if (!destinationDirectory.exists()) {
-            destinationDirectory.mkdir()
-        }
-        for (f in sourceDirectory.list()) {
-            copyDirectoryCompatibilityMode(File(sourceDirectory, f), File(destinationDirectory, f))
-        }
-    }
-
-    private fun copyDirectoryCompatibilityMode(source: File, destination: File) {
-        if (source.isDirectory) {
-            copyDirectory(source, destination)
-        } else {
-            copyFile(source, destination)
-        }
-    }
-
-    private fun copyFile(sourceFile: File, destinationFile: File) {
-        FileInputStream(sourceFile).use { input ->
-            FileOutputStream(destinationFile).use { out ->
-                val buf = ByteArray(1024)
-                var length: Int
-                while (input.read(buf).also { length = it } > 0) {
-                    out.write(buf, 0, length)
-                }
-            }
-        }
-    }
 
     fun init() {
         val ranges = (0..20).toList()
@@ -63,7 +35,7 @@ class Parser {
 
     fun copyPreJSON() {
         val preDir = File("pre-Nendoroid")
-        copyDirectory(preDir, File(basePath))
+        DirUtil.copyDirectory(preDir, File(basePath))
     }
 
     // 굿스마 공홈 관련
@@ -329,19 +301,6 @@ class Parser {
             return mutableListOf(formatted, name, series, gender, setName)
         }
 
-        fun createParsedCSV() {
-            try {
-                val printer = CSVPrinter(FileWriter("parsed.csv"), CSVFormat.DEFAULT)
-                val csvParser = parser.csv.loadCSV("sheet.csv")
-                for (csvRecord in csvParser) {
-                    val data = parser.csv.parseCSV(csvRecord)
-                    printer.printRecord(data)
-                }
-                printer.close()
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-        }
     }
 
 

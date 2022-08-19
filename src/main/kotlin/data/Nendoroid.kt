@@ -6,7 +6,7 @@ import java.nio.file.Paths
 import java.util.*
 
 data class Nendoroid(
-    var num: String,
+    override var num: String,
     var name: MutableMap<Locale, String> = mutableMapOf(),
     var series: MutableMap<Locale, String> = mutableMapOf(),
     var gsc_productNum: Int = 0,
@@ -17,13 +17,11 @@ data class Nendoroid(
     var set: Int? = null
 ) : DataWritable {
 
-    override val serial  = num
-
     override fun find(): File {
-        val range = (serial.replace("\\D".toRegex(), "").toIntOrNull() ?: -1) / 100
+        val range = (num.replace("\\D".toRegex(), "").toIntOrNull() ?: -1) / 100
         val folderName = String.format("%04d-%04d", range * 100, (range + 1) * 100 - 1)
         val path = Paths.get(basePath, folderName)
-        return File(path.toFile(), "$serial.json")
+        return File(path.toFile(), "$num.json")
     }
     override fun toString(): String {
         return """

@@ -11,7 +11,7 @@ interface DataWritable {
         val gson: Gson = GsonBuilder().setPrettyPrinting().create()
     }
 
-    val serial: String
+    val num: String
 
     fun save() {
         val file = find()

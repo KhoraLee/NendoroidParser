@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicInteger
 
 
 val parser = Parser()
-const val basePath = "NendoroidDB"
+const val basePath = "../NendoroidDB/Nendoroid"
 fun main() {
     parser.init() // 폴더 생성
     parser.copyPreJSON() // 파싱이 제한되는 넨도들 복사
@@ -26,7 +26,7 @@ fun updateSetInfo() {
     val setList = parser.csv.parseNendoroidSet("parsed.csv")
     var serial = 1
     setList.forEach { set ->
-        set.serial = serial.toString()
+        set.num = serial.toString()
         set.save()
         set.list.forEach { number ->
             val nendoroid: Nendoroid? = Nendoroid(number).load()
@@ -77,7 +77,7 @@ fun checkAllDB() {
 
 private fun getAllNendoroids(path: String = ""): ArrayList<File> {
     val nendoroidList = ArrayList<File>()
-    val path = File(path.ifEmpty { "D:\\NendoroidDB\\Nendoroid" })
+    val path = File(path.ifEmpty { "NendoroidDB/Nendoroid" })
     val fList = path.listFiles()
     fList.forEach {
         if (it.isDirectory && it.name != "Set") {
