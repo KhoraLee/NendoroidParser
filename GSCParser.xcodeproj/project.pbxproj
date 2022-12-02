@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B11CE9A52939F56100C3B063 /* Nendoroid.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11CE9A42939F56100C3B063 /* Nendoroid.swift */; };
+		B11CE9A72939F5BD00C3B063 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11CE9A62939F5BD00C3B063 /* Gender.swift */; };
+		B11CE9A92939F9A800C3B063 /* LanguageCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11CE9A82939F9A800C3B063 /* LanguageCode.swift */; };
+		B11CE9AB2939FB5600C3B063 /* NendoroidSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11CE9AA2939FB5600C3B063 /* NendoroidSet.swift */; };
+		B11CE9AD2939FC3400C3B063 /* NendoroidDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11CE9AC2939FC3400C3B063 /* NendoroidDAO.swift */; };
+		B11CE9B0293A078700C3B063 /* String+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11CE9AF293A078700C3B063 /* String+Additions.swift */; };
+		B11CE9B2293A0A5600C3B063 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11CE9B1293A0A5600C3B063 /* LocalizedString.swift */; };
+		B11CE9B4293A446200C3B063 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11CE9B3293A446200C3B063 /* Base.swift */; };
 		B1EF81262939E76F000E9889 /* GSCParserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EF81252939E76F000E9889 /* GSCParserApp.swift */; };
 		B1EF81282939E76F000E9889 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EF81272939E76F000E9889 /* ContentView.swift */; };
 		B1EF812A2939E770000E9889 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1EF81292939E770000E9889 /* Assets.xcassets */; };
@@ -54,6 +62,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B11CE9A42939F56100C3B063 /* Nendoroid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nendoroid.swift; sourceTree = "<group>"; };
+		B11CE9A62939F5BD00C3B063 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
+		B11CE9A82939F9A800C3B063 /* LanguageCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCode.swift; sourceTree = "<group>"; };
+		B11CE9AA2939FB5600C3B063 /* NendoroidSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NendoroidSet.swift; sourceTree = "<group>"; };
+		B11CE9AC2939FC3400C3B063 /* NendoroidDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NendoroidDAO.swift; sourceTree = "<group>"; };
+		B11CE9AF293A078700C3B063 /* String+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Additions.swift"; sourceTree = "<group>"; };
+		B11CE9B1293A0A5600C3B063 /* LocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
+		B11CE9B3293A446200C3B063 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		B1EF81222939E76F000E9889 /* GSCParser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GSCParser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1EF81252939E76F000E9889 /* GSCParserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSCParserApp.swift; sourceTree = "<group>"; };
 		B1EF81272939E76F000E9889 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -94,6 +110,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B11CE9A32939F55200C3B063 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B11CE9B3293A446200C3B063 /* Base.swift */,
+				B11CE9A62939F5BD00C3B063 /* Gender.swift */,
+				B11CE9A82939F9A800C3B063 /* LanguageCode.swift */,
+				B11CE9B1293A0A5600C3B063 /* LocalizedString.swift */,
+				B11CE9A42939F56100C3B063 /* Nendoroid.swift */,
+				B11CE9AA2939FB5600C3B063 /* NendoroidSet.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B11CE9AE293A05C800C3B063 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B11CE9AF293A078700C3B063 /* String+Additions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		B1EF81192939E76F000E9889 = {
 			isa = PBXGroup;
 			children = (
@@ -147,7 +184,10 @@
 		B1EF81442939EA6A000E9889 /* Parser */ = {
 			isa = PBXGroup;
 			children = (
+				B11CE9AE293A05C800C3B063 /* Extensions */,
+				B11CE9A32939F55200C3B063 /* Model */,
 				B1EF81512939EC75000E9889 /* Parser.swift */,
+				B11CE9AC2939FC3400C3B063 /* NendoroidDAO.swift */,
 			);
 			path = Parser;
 			sourceTree = "<group>";
@@ -302,7 +342,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B11CE9B0293A078700C3B063 /* String+Additions.swift in Sources */,
+				B11CE9A92939F9A800C3B063 /* LanguageCode.swift in Sources */,
+				B11CE9A72939F5BD00C3B063 /* Gender.swift in Sources */,
+				B11CE9A52939F56100C3B063 /* Nendoroid.swift in Sources */,
+				B11CE9AD2939FC3400C3B063 /* NendoroidDAO.swift in Sources */,
 				B1EF81522939EC75000E9889 /* Parser.swift in Sources */,
+				B11CE9B4293A446200C3B063 /* Base.swift in Sources */,
+				B11CE9B2293A0A5600C3B063 /* LocalizedString.swift in Sources */,
+				B11CE9AB2939FB5600C3B063 /* NendoroidSet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
