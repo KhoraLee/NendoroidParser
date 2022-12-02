@@ -1,0 +1,590 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B1EF81262939E76F000E9889 /* GSCParserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EF81252939E76F000E9889 /* GSCParserApp.swift */; };
+		B1EF81282939E76F000E9889 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EF81272939E76F000E9889 /* ContentView.swift */; };
+		B1EF812A2939E770000E9889 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1EF81292939E770000E9889 /* Assets.xcassets */; };
+		B1EF812D2939E770000E9889 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1EF812C2939E770000E9889 /* Preview Assets.xcassets */; };
+		B1EF813B2939E78E000E9889 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EF813A2939E78E000E9889 /* main.swift */; };
+		B1EF81522939EC75000E9889 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EF81512939EC75000E9889 /* Parser.swift */; };
+		B1EF81542939ECEF000E9889 /* libParser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1EF81432939EA6A000E9889 /* libParser.a */; };
+		B1EF81582939ED38000E9889 /* libParser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1EF81432939EA6A000E9889 /* libParser.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B1EF814C2939EA75000E9889 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1EF811A2939E76F000E9889 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B1EF81422939EA6A000E9889;
+			remoteInfo = Parser;
+		};
+		B1EF81552939ECEF000E9889 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1EF811A2939E76F000E9889 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B1EF81422939EA6A000E9889;
+			remoteInfo = Parser;
+		};
+		B1EF81592939ED38000E9889 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1EF811A2939E76F000E9889 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B1EF81422939EA6A000E9889;
+			remoteInfo = Parser;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B1EF81362939E78E000E9889 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B1EF81222939E76F000E9889 /* GSCParser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GSCParser.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1EF81252939E76F000E9889 /* GSCParserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSCParserApp.swift; sourceTree = "<group>"; };
+		B1EF81272939E76F000E9889 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B1EF81292939E770000E9889 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B1EF812C2939E770000E9889 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B1EF812E2939E770000E9889 /* GSCParser.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GSCParser.entitlements; sourceTree = "<group>"; };
+		B1EF81382939E78E000E9889 /* GSCParser-CLI */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "GSCParser-CLI"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1EF813A2939E78E000E9889 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		B1EF81432939EA6A000E9889 /* libParser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libParser.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1EF81512939EC75000E9889 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		B1EF81572939ED34000E9889 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B1EF811F2939E76F000E9889 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1EF81582939ED38000E9889 /* libParser.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1EF81352939E78E000E9889 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1EF81542939ECEF000E9889 /* libParser.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1EF81412939EA6A000E9889 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B1EF81192939E76F000E9889 = {
+			isa = PBXGroup;
+			children = (
+				B1EF81242939E76F000E9889 /* GSCParser */,
+				B1EF81392939E78E000E9889 /* GSCParser-CLI */,
+				B1EF81442939EA6A000E9889 /* Parser */,
+				B1EF81232939E76F000E9889 /* Products */,
+				B1EF81532939ECEF000E9889 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B1EF81232939E76F000E9889 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B1EF81222939E76F000E9889 /* GSCParser.app */,
+				B1EF81382939E78E000E9889 /* GSCParser-CLI */,
+				B1EF81432939EA6A000E9889 /* libParser.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B1EF81242939E76F000E9889 /* GSCParser */ = {
+			isa = PBXGroup;
+			children = (
+				B1EF81572939ED34000E9889 /* Info.plist */,
+				B1EF81252939E76F000E9889 /* GSCParserApp.swift */,
+				B1EF81272939E76F000E9889 /* ContentView.swift */,
+				B1EF81292939E770000E9889 /* Assets.xcassets */,
+				B1EF812E2939E770000E9889 /* GSCParser.entitlements */,
+				B1EF812B2939E770000E9889 /* Preview Content */,
+			);
+			path = GSCParser;
+			sourceTree = "<group>";
+		};
+		B1EF812B2939E770000E9889 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B1EF812C2939E770000E9889 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B1EF81392939E78E000E9889 /* GSCParser-CLI */ = {
+			isa = PBXGroup;
+			children = (
+				B1EF813A2939E78E000E9889 /* main.swift */,
+			);
+			path = "GSCParser-CLI";
+			sourceTree = "<group>";
+		};
+		B1EF81442939EA6A000E9889 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				B1EF81512939EC75000E9889 /* Parser.swift */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		B1EF81532939ECEF000E9889 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		B1EF813F2939EA6A000E9889 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		B1EF81212939E76F000E9889 /* GSCParser */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1EF81312939E770000E9889 /* Build configuration list for PBXNativeTarget "GSCParser" */;
+			buildPhases = (
+				B1EF811E2939E76F000E9889 /* Sources */,
+				B1EF811F2939E76F000E9889 /* Frameworks */,
+				B1EF81202939E76F000E9889 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B1EF814D2939EA75000E9889 /* PBXTargetDependency */,
+				B1EF815A2939ED38000E9889 /* PBXTargetDependency */,
+			);
+			name = GSCParser;
+			productName = GSCParser;
+			productReference = B1EF81222939E76F000E9889 /* GSCParser.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B1EF81372939E78E000E9889 /* GSCParser-CLI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1EF813C2939E78E000E9889 /* Build configuration list for PBXNativeTarget "GSCParser-CLI" */;
+			buildPhases = (
+				B1EF81342939E78E000E9889 /* Sources */,
+				B1EF81352939E78E000E9889 /* Frameworks */,
+				B1EF81362939E78E000E9889 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B1EF81562939ECEF000E9889 /* PBXTargetDependency */,
+			);
+			name = "GSCParser-CLI";
+			productName = "GSCParser-CLI";
+			productReference = B1EF81382939E78E000E9889 /* GSCParser-CLI */;
+			productType = "com.apple.product-type.tool";
+		};
+		B1EF81422939EA6A000E9889 /* Parser */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1EF81492939EA6A000E9889 /* Build configuration list for PBXNativeTarget "Parser" */;
+			buildPhases = (
+				B1EF813F2939EA6A000E9889 /* Headers */,
+				B1EF81402939EA6A000E9889 /* Sources */,
+				B1EF81412939EA6A000E9889 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Parser;
+			productName = Parser;
+			productReference = B1EF81432939EA6A000E9889 /* libParser.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B1EF811A2939E76F000E9889 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					B1EF81212939E76F000E9889 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+					B1EF81372939E78E000E9889 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+					B1EF81422939EA6A000E9889 = {
+						CreatedOnToolsVersion = 14.1;
+						LastSwiftMigration = 1410;
+					};
+				};
+			};
+			buildConfigurationList = B1EF811D2939E76F000E9889 /* Build configuration list for PBXProject "GSCParser" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B1EF81192939E76F000E9889;
+			productRefGroup = B1EF81232939E76F000E9889 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B1EF81212939E76F000E9889 /* GSCParser */,
+				B1EF81372939E78E000E9889 /* GSCParser-CLI */,
+				B1EF81422939EA6A000E9889 /* Parser */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B1EF81202939E76F000E9889 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1EF812D2939E770000E9889 /* Preview Assets.xcassets in Resources */,
+				B1EF812A2939E770000E9889 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B1EF811E2939E76F000E9889 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1EF81282939E76F000E9889 /* ContentView.swift in Sources */,
+				B1EF81262939E76F000E9889 /* GSCParserApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1EF81342939E78E000E9889 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1EF813B2939E78E000E9889 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1EF81402939EA6A000E9889 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1EF81522939EC75000E9889 /* Parser.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B1EF814D2939EA75000E9889 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B1EF81422939EA6A000E9889 /* Parser */;
+			targetProxy = B1EF814C2939EA75000E9889 /* PBXContainerItemProxy */;
+		};
+		B1EF81562939ECEF000E9889 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B1EF81422939EA6A000E9889 /* Parser */;
+			targetProxy = B1EF81552939ECEF000E9889 /* PBXContainerItemProxy */;
+		};
+		B1EF815A2939ED38000E9889 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B1EF81422939EA6A000E9889 /* Parser */;
+			targetProxy = B1EF81592939ED38000E9889 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		B1EF812F2939E770000E9889 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B1EF81302939E770000E9889 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		B1EF81322939E770000E9889 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GSCParser/GSCParser.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"GSCParser/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GSCParser/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.khora.GSCParser;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		B1EF81332939E770000E9889 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GSCParser/GSCParser.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"GSCParser/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GSCParser/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.khora.GSCParser;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		B1EF813D2939E78E000E9889 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		B1EF813E2939E78E000E9889 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		B1EF814A2939EA6A000E9889 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				EXECUTABLE_PREFIX = lib;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		B1EF814B2939EA6A000E9889 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				EXECUTABLE_PREFIX = lib;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B1EF811D2939E76F000E9889 /* Build configuration list for PBXProject "GSCParser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1EF812F2939E770000E9889 /* Debug */,
+				B1EF81302939E770000E9889 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1EF81312939E770000E9889 /* Build configuration list for PBXNativeTarget "GSCParser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1EF81322939E770000E9889 /* Debug */,
+				B1EF81332939E770000E9889 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1EF813C2939E78E000E9889 /* Build configuration list for PBXNativeTarget "GSCParser-CLI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1EF813D2939E78E000E9889 /* Debug */,
+				B1EF813E2939E78E000E9889 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1EF81492939EA6A000E9889 /* Build configuration list for PBXNativeTarget "Parser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1EF814A2939EA6A000E9889 /* Debug */,
+				B1EF814B2939EA6A000E9889 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B1EF811A2939E76F000E9889 /* Project object */;
+}
