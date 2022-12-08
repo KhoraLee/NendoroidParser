@@ -15,6 +15,8 @@
 		B11CE9B0293A078700C3B063 /* String+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11CE9AF293A078700C3B063 /* String+Additions.swift */; };
 		B11CE9B2293A0A5600C3B063 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11CE9B1293A0A5600C3B063 /* LocalizedString.swift */; };
 		B11CE9B4293A446200C3B063 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11CE9B3293A446200C3B063 /* Base.swift */; };
+		B11CE9B729408DA100C3B063 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = B11CE9B629408DA100C3B063 /* SwiftSoup */; };
+		B11CE9BA29423B4E00C3B063 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B11CE9B929423B4E00C3B063 /* Alamofire */; };
 		B1EF81262939E76F000E9889 /* GSCParserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EF81252939E76F000E9889 /* GSCParserApp.swift */; };
 		B1EF81282939E76F000E9889 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EF81272939E76F000E9889 /* ContentView.swift */; };
 		B1EF812A2939E770000E9889 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1EF81292939E770000E9889 /* Assets.xcassets */; };
@@ -104,6 +106,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B11CE9B729408DA100C3B063 /* SwiftSoup in Frameworks */,
+				B11CE9BA29423B4E00C3B063 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,8 +190,8 @@
 			children = (
 				B11CE9AE293A05C800C3B063 /* Extensions */,
 				B11CE9A32939F55200C3B063 /* Model */,
-				B1EF81512939EC75000E9889 /* Parser.swift */,
 				B11CE9AC2939FC3400C3B063 /* NendoroidDAO.swift */,
+				B1EF81512939EC75000E9889 /* Parser.swift */,
 			);
 			path = Parser;
 			sourceTree = "<group>";
@@ -262,6 +266,10 @@
 			dependencies = (
 			);
 			name = Parser;
+			packageProductDependencies = (
+				B11CE9B629408DA100C3B063 /* SwiftSoup */,
+				B11CE9B929423B4E00C3B063 /* Alamofire */,
+			);
 			productName = Parser;
 			productReference = B1EF81432939EA6A000E9889 /* libParser.a */;
 			productType = "com.apple.product-type.library.static";
@@ -297,6 +305,10 @@
 				Base,
 			);
 			mainGroup = B1EF81192939E76F000E9889;
+			packageReferences = (
+				B11CE9B529408DA100C3B063 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+				B11CE9B829423B4E00C3B063 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = B1EF81232939E76F000E9889 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -633,6 +645,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B11CE9B529408DA100C3B063 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		B11CE9B829423B4E00C3B063 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B11CE9B629408DA100C3B063 /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B11CE9B529408DA100C3B063 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
+		B11CE9B929423B4E00C3B063 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B11CE9B829423B4E00C3B063 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B1EF811A2939E76F000E9889 /* Project object */;
 }
