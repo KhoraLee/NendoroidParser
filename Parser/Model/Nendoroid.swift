@@ -26,7 +26,7 @@ public struct Nendoroid: Base {
         case releaseDate = "release_date"
     }
     
-    public init(num: String, name: LocalizedString, series: LocalizedString, gscProductNum: Int, price: Int, releaseDate: [String], image: String, gender: Gender, set: Int? = nil) {
+    public init(num: String, name: LocalizedString, series: LocalizedString, gscProductNum: Int, price: Int, releaseDate: [String], image: String = "", gender: Gender? = nil, set: Int? = nil) {
         self.num = num
         self.name = name
         self.series = series

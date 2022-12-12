@@ -12,11 +12,32 @@ extension String {
         Int(self)
     }
     
-    public var containsFullWidthCharacters: Bool {
+    func substring(from: Int, to: Int) -> String {
+        guard from < count, to >= 0, to - from >= 0 else {
+            return ""
+        }
+
+        let startIndex = index(self.startIndex, offsetBy: from)
+        let endIndex = index(self.startIndex, offsetBy: to + 1)
+
+        return String(self[startIndex ..< endIndex])
+      }
+
+    func substring(_ from: Int) -> String {
+        guard from < count else {
+            return ""
+        }
+
+        let startIndex = index(self.startIndex, offsetBy: from)
+        let endIndex = index(self.startIndex, offsetBy: count)
+        return String(self[startIndex ..< endIndex])
+    }
+
+    var containsFullWidthCharacters: Bool {
         unicodeScalars.contains { $0.isFullWidth }
     }
     
-    public func convertToHalfWidth() throws -> String {
+    func convertToHalfWidth() throws -> String {
         if (!self.containsFullWidthCharacters || !unicodeScalars.contains { $0.isConverterable }) {
             throw UnicodeScalar.EAWError.noConvertableFullWidthCharacter
         }
