@@ -37,10 +37,7 @@ extension String {
         unicodeScalars.contains { $0.isFullWidth }
     }
     
-    func convertToHalfWidth() throws -> String {
-        if (!self.containsFullWidthCharacters || !unicodeScalars.contains { $0.isConverterable }) {
-            throw UnicodeScalar.EAWError.noConvertableFullWidthCharacter
-        }
+    func convertToHalfWidthString() -> String {
         return String(unicodeScalars.map {
             if !$0.isConverterable { return $0 }
             if $0.value == 0x3000 {

@@ -5,7 +5,17 @@
 //  Created by 이승윤 on 2022/12/02.
 //
 
-public struct Nendoroid: Base {
+public struct Nendoroid: Base, Hashable {
+    
+    public static func == (lhs: Nendoroid, rhs: Nendoroid) -> Bool {
+        lhs.num == rhs.num && lhs.gscProductNum == rhs.gscProductNum
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(num)
+        hasher.combine(gscProductNum)
+    }
+    
     public func location() -> String {
         let range = num.components(separatedBy: .decimalDigits.inverted).joined().toInt()! / 100
         let folderName = String(format: "%04d-%04d", range * 100, (range + 1) * 100 - 1)
@@ -26,7 +36,17 @@ public struct Nendoroid: Base {
         case releaseDate = "release_date"
     }
     
-    public init(num: String, name: LocalizedString, series: LocalizedString, gscProductNum: Int, price: Int, releaseDate: [String], image: String = "", gender: Gender? = nil, set: Int? = nil) {
+    public init(
+        num: String,
+        name: LocalizedString = LocalizedString(),
+        series: LocalizedString = LocalizedString(),
+        gscProductNum: Int,
+        price: Int = -1,
+        releaseDate: [String] = [],
+        image: String = "",
+        gender: Gender? = nil,
+        set: Int? = nil
+    ) {
         self.num = num
         self.name = name
         self.series = series

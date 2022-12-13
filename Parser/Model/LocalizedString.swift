@@ -11,6 +11,8 @@ public struct LocalizedString: Codable {
     var ja: String?
     var ko: String?
     
+    public init() {}
+    
     public init(locale: LanguageCode, string: String) {
         switch locale {
         case .ko:
