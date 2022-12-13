@@ -27,8 +27,8 @@
 		B1EF812D2939E770000E9889 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1EF812C2939E770000E9889 /* Preview Assets.xcassets */; };
 		B1EF813B2939E78E000E9889 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EF813A2939E78E000E9889 /* main.swift */; };
 		B1EF81522939EC75000E9889 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EF81512939EC75000E9889 /* Parser.swift */; };
-		B1EF81542939ECEF000E9889 /* libParser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1EF81432939EA6A000E9889 /* libParser.a */; };
-		B1EF81582939ED38000E9889 /* libParser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1EF81432939EA6A000E9889 /* libParser.a */; };
+		B1EF81542939ECEF000E9889 /* libGSCParser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1EF81432939EA6A000E9889 /* libGSCParser.a */; };
+		B1F880572948FC420029D548 /* libGSCParser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1EF81432939EA6A000E9889 /* libGSCParser.a */; };
 		B1FDF32D29449B78004083A0 /* ParserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FDF32C29449B78004083A0 /* ParserHelper.swift */; };
 		B1FDF32F294785DC004083A0 /* Nendoroid+Merge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FDF32E294785DC004083A0 /* Nendoroid+Merge.swift */; };
 		B1FDF3322948F73A004083A0 /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = B1FDF3312948F73A004083A0 /* ArgumentParser */; };
@@ -36,13 +36,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B1EF814C2939EA75000E9889 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B1EF811A2939E76F000E9889 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B1EF81422939EA6A000E9889;
-			remoteInfo = Parser;
-		};
 		B1EF81552939ECEF000E9889 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B1EF811A2939E76F000E9889 /* Project object */;
@@ -50,12 +43,12 @@
 			remoteGlobalIDString = B1EF81422939EA6A000E9889;
 			remoteInfo = Parser;
 		};
-		B1EF81592939ED38000E9889 /* PBXContainerItemProxy */ = {
+		B1F880582948FC420029D548 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B1EF811A2939E76F000E9889 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B1EF81422939EA6A000E9889;
-			remoteInfo = Parser;
+			remoteInfo = GSCParser;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -84,7 +77,7 @@
 		B11CE9C129434A3000C3B063 /* UnicodeScalar+EAW.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnicodeScalar+EAW.swift"; sourceTree = "<group>"; };
 		B185EA6A294490F000A3F069 /* GSCRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSCRepository.swift; sourceTree = "<group>"; };
 		B185EA6C2944964B00A3F069 /* GSCError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSCError.swift; sourceTree = "<group>"; };
-		B1EF81222939E76F000E9889 /* GSCParser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GSCParser.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1EF81222939E76F000E9889 /* GSCParser-GUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GSCParser-GUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1EF81252939E76F000E9889 /* GSCParserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSCParserApp.swift; sourceTree = "<group>"; };
 		B1EF81272939E76F000E9889 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B1EF81292939E770000E9889 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -92,7 +85,7 @@
 		B1EF812E2939E770000E9889 /* GSCParser.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GSCParser.entitlements; sourceTree = "<group>"; };
 		B1EF81382939E78E000E9889 /* GSCParser-CLI */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "GSCParser-CLI"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1EF813A2939E78E000E9889 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		B1EF81432939EA6A000E9889 /* libParser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libParser.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1EF81432939EA6A000E9889 /* libGSCParser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGSCParser.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1EF81512939EC75000E9889 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		B1EF81572939ED34000E9889 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B1FDF32C29449B78004083A0 /* ParserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserHelper.swift; sourceTree = "<group>"; };
@@ -105,7 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1EF81582939ED38000E9889 /* libParser.a in Frameworks */,
+				B1F880572948FC420029D548 /* libGSCParser.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,7 +107,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1FDF3322948F73A004083A0 /* ArgumentParser in Frameworks */,
-				B1EF81542939ECEF000E9889 /* libParser.a in Frameworks */,
+				B1EF81542939ECEF000E9889 /* libGSCParser.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,9 +167,9 @@
 		B1EF81192939E76F000E9889 = {
 			isa = PBXGroup;
 			children = (
-				B1EF81242939E76F000E9889 /* GSCParser */,
+				B1EF81242939E76F000E9889 /* GSCParser-GUI */,
 				B1EF81392939E78E000E9889 /* GSCParser-CLI */,
-				B1EF81442939EA6A000E9889 /* Parser */,
+				B1EF81442939EA6A000E9889 /* GSCParser */,
 				B1EF81232939E76F000E9889 /* Products */,
 				B1EF81532939ECEF000E9889 /* Frameworks */,
 			);
@@ -185,14 +178,14 @@
 		B1EF81232939E76F000E9889 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B1EF81222939E76F000E9889 /* GSCParser.app */,
+				B1EF81222939E76F000E9889 /* GSCParser-GUI.app */,
 				B1EF81382939E78E000E9889 /* GSCParser-CLI */,
-				B1EF81432939EA6A000E9889 /* libParser.a */,
+				B1EF81432939EA6A000E9889 /* libGSCParser.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B1EF81242939E76F000E9889 /* GSCParser */ = {
+		B1EF81242939E76F000E9889 /* GSCParser-GUI */ = {
 			isa = PBXGroup;
 			children = (
 				B1EF81572939ED34000E9889 /* Info.plist */,
@@ -202,7 +195,7 @@
 				B1EF812E2939E770000E9889 /* GSCParser.entitlements */,
 				B1EF812B2939E770000E9889 /* Preview Content */,
 			);
-			path = GSCParser;
+			path = "GSCParser-GUI";
 			sourceTree = "<group>";
 		};
 		B1EF812B2939E770000E9889 /* Preview Content */ = {
@@ -222,7 +215,7 @@
 			path = "GSCParser-CLI";
 			sourceTree = "<group>";
 		};
-		B1EF81442939EA6A000E9889 /* Parser */ = {
+		B1EF81442939EA6A000E9889 /* GSCParser */ = {
 			isa = PBXGroup;
 			children = (
 				B1FDF32B29449B4E004083A0 /* Utilities */,
@@ -232,7 +225,7 @@
 				B11CE9BB2942404800C3B063 /* Repositories */,
 				B1EF81512939EC75000E9889 /* Parser.swift */,
 			);
-			path = Parser;
+			path = GSCParser;
 			sourceTree = "<group>";
 		};
 		B1EF81532939ECEF000E9889 /* Frameworks */ = {
@@ -263,9 +256,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		B1EF81212939E76F000E9889 /* GSCParser */ = {
+		B1EF81212939E76F000E9889 /* GSCParser-GUI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B1EF81312939E770000E9889 /* Build configuration list for PBXNativeTarget "GSCParser" */;
+			buildConfigurationList = B1EF81312939E770000E9889 /* Build configuration list for PBXNativeTarget "GSCParser-GUI" */;
 			buildPhases = (
 				B1EF811E2939E76F000E9889 /* Sources */,
 				B1EF811F2939E76F000E9889 /* Frameworks */,
@@ -274,12 +267,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				B1EF814D2939EA75000E9889 /* PBXTargetDependency */,
-				B1EF815A2939ED38000E9889 /* PBXTargetDependency */,
+				B1F880592948FC420029D548 /* PBXTargetDependency */,
 			);
-			name = GSCParser;
+			name = "GSCParser-GUI";
 			productName = GSCParser;
-			productReference = B1EF81222939E76F000E9889 /* GSCParser.app */;
+			productReference = B1EF81222939E76F000E9889 /* GSCParser-GUI.app */;
 			productType = "com.apple.product-type.application";
 		};
 		B1EF81372939E78E000E9889 /* GSCParser-CLI */ = {
@@ -303,9 +295,9 @@
 			productReference = B1EF81382939E78E000E9889 /* GSCParser-CLI */;
 			productType = "com.apple.product-type.tool";
 		};
-		B1EF81422939EA6A000E9889 /* Parser */ = {
+		B1EF81422939EA6A000E9889 /* GSCParser */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B1EF81492939EA6A000E9889 /* Build configuration list for PBXNativeTarget "Parser" */;
+			buildConfigurationList = B1EF81492939EA6A000E9889 /* Build configuration list for PBXNativeTarget "GSCParser" */;
 			buildPhases = (
 				B1EF813F2939EA6A000E9889 /* Headers */,
 				B1EF81402939EA6A000E9889 /* Sources */,
@@ -315,13 +307,13 @@
 			);
 			dependencies = (
 			);
-			name = Parser;
+			name = GSCParser;
 			packageProductDependencies = (
 				B11CE9B629408DA100C3B063 /* SwiftSoup */,
 				B11CE9B929423B4E00C3B063 /* Alamofire */,
 			);
 			productName = Parser;
-			productReference = B1EF81432939EA6A000E9889 /* libParser.a */;
+			productReference = B1EF81432939EA6A000E9889 /* libGSCParser.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -364,9 +356,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B1EF81212939E76F000E9889 /* GSCParser */,
+				B1EF81212939E76F000E9889 /* GSCParser-GUI */,
 				B1EF81372939E78E000E9889 /* GSCParser-CLI */,
-				B1EF81422939EA6A000E9889 /* Parser */,
+				B1EF81422939EA6A000E9889 /* GSCParser */,
 			);
 		};
 /* End PBXProject section */
@@ -427,20 +419,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B1EF814D2939EA75000E9889 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B1EF81422939EA6A000E9889 /* Parser */;
-			targetProxy = B1EF814C2939EA75000E9889 /* PBXContainerItemProxy */;
-		};
 		B1EF81562939ECEF000E9889 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B1EF81422939EA6A000E9889 /* Parser */;
+			target = B1EF81422939EA6A000E9889 /* GSCParser */;
 			targetProxy = B1EF81552939ECEF000E9889 /* PBXContainerItemProxy */;
 		};
-		B1EF815A2939ED38000E9889 /* PBXTargetDependency */ = {
+		B1F880592948FC420029D548 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B1EF81422939EA6A000E9889 /* Parser */;
-			targetProxy = B1EF81592939ED38000E9889 /* PBXContainerItemProxy */;
+			target = B1EF81422939EA6A000E9889 /* GSCParser */;
+			targetProxy = B1F880582948FC420029D548 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -563,14 +550,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = GSCParser/GSCParser.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "GSCParser-GUI/GSCParser.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"GSCParser/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"GSCParser-GUI/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GSCParser/Info.plist;
+				INFOPLIST_FILE = "GSCParser-GUI/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -589,14 +576,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = GSCParser/GSCParser.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "GSCParser-GUI/GSCParser.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"GSCParser/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"GSCParser-GUI/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GSCParser/Info.plist;
+				INFOPLIST_FILE = "GSCParser-GUI/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -675,7 +662,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B1EF81312939E770000E9889 /* Build configuration list for PBXNativeTarget "GSCParser" */ = {
+		B1EF81312939E770000E9889 /* Build configuration list for PBXNativeTarget "GSCParser-GUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B1EF81322939E770000E9889 /* Debug */,
@@ -693,7 +680,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B1EF81492939EA6A000E9889 /* Build configuration list for PBXNativeTarget "Parser" */ = {
+		B1EF81492939EA6A000E9889 /* Build configuration list for PBXNativeTarget "GSCParser" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B1EF814A2939EA6A000E9889 /* Debug */,

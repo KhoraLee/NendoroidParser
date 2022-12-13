@@ -7,6 +7,7 @@
 
 import ArgumentParser
 import Foundation
+import GSCParser
 
 let version = "1.0.0"
 
