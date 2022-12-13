@@ -32,6 +32,7 @@
 		B1FDF32D29449B78004083A0 /* ParserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FDF32C29449B78004083A0 /* ParserHelper.swift */; };
 		B1FDF32F294785DC004083A0 /* Nendoroid+Merge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FDF32E294785DC004083A0 /* Nendoroid+Merge.swift */; };
 		B1FDF3322948F73A004083A0 /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = B1FDF3312948F73A004083A0 /* ArgumentParser */; };
+		B1FDF3362948F9F4004083A0 /* GSCParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FDF3352948F9F4004083A0 /* GSCParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		B1EF81572939ED34000E9889 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B1FDF32C29449B78004083A0 /* ParserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserHelper.swift; sourceTree = "<group>"; };
 		B1FDF32E294785DC004083A0 /* Nendoroid+Merge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Nendoroid+Merge.swift"; sourceTree = "<group>"; };
+		B1FDF3352948F9F4004083A0 /* GSCParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSCParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				B1EF813A2939E78E000E9889 /* main.swift */,
+				B1FDF3352948F9F4004083A0 /* GSCParser.swift */,
 			);
 			path = "GSCParser-CLI";
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1FDF3362948F9F4004083A0 /* GSCParser.swift in Sources */,
 				B1EF813B2939E78E000E9889 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
