@@ -31,6 +31,7 @@
 		B1EF81582939ED38000E9889 /* libParser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1EF81432939EA6A000E9889 /* libParser.a */; };
 		B1FDF32D29449B78004083A0 /* ParserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FDF32C29449B78004083A0 /* ParserHelper.swift */; };
 		B1FDF32F294785DC004083A0 /* Nendoroid+Merge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FDF32E294785DC004083A0 /* Nendoroid+Merge.swift */; };
+		B1FDF3322948F73A004083A0 /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = B1FDF3312948F73A004083A0 /* ArgumentParser */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1FDF3322948F73A004083A0 /* ArgumentParser in Frameworks */,
 				B1EF81542939ECEF000E9889 /* libParser.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,6 +293,9 @@
 				B1EF81562939ECEF000E9889 /* PBXTargetDependency */,
 			);
 			name = "GSCParser-CLI";
+			packageProductDependencies = (
+				B1FDF3312948F73A004083A0 /* ArgumentParser */,
+			);
 			productName = "GSCParser-CLI";
 			productReference = B1EF81382939E78E000E9889 /* GSCParser-CLI */;
 			productType = "com.apple.product-type.tool";
@@ -350,6 +355,7 @@
 			packageReferences = (
 				B11CE9B529408DA100C3B063 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 				B11CE9B829423B4E00C3B063 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				B1FDF3302948F73A004083A0 /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
 			);
 			productRefGroup = B1EF81232939E76F000E9889 /* Products */;
 			projectDirPath = "";
@@ -711,6 +717,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		B1FDF3302948F73A004083A0 /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-argument-parser.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -723,6 +737,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B11CE9B829423B4E00C3B063 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		B1FDF3312948F73A004083A0 /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1FDF3302948F73A004083A0 /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
