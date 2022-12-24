@@ -132,7 +132,9 @@ open class GSCRepository {
 
   private func parseBaesNendoroid(locale: LanguageCode, element: Element) throws -> Nendoroid? {
     let num = try element.select("span.hitNum").text().convertToHalfWidthString().lowercased()
-      .replacingOccurrences(of: "-", with: "").replacingOccurrences(of: "dx", with: "-DX")
+      .replacingOccurrences(of: "‐", with: "-")
+      .replacingOccurrences(of: "-", with: "")
+      .replacingOccurrences(of: "dx", with: "-DX")
     if num == "" { return nil }
     guard
       let gscCode = try String(
@@ -150,14 +152,13 @@ open class GSCRepository {
       let elements = try document.select("div.itemDetail").select("div.detailBox>dl")
       let keyElements = try elements.select("dt").map { try $0.text() }
       let valueElements = try elements.select("dd").map { try $0.text() }
+      if keyElements.count == 0 { return nil }
       if keyElements.count != valueElements.count { throw GSCError.keyValueSizeMismatch }
 
       var info = [String: String]()
       for i in 0...(keyElements.count - 1) {
         let key = keyElements[i]
-        if
-          info.keys.contains(key) || !convertionDict.keys
-            .contains(key) { continue } // TODO: Need to check if this is needed
+        if !convertionDict.keys.contains(key) || info.keys.contains(convertionDict[key]!) { continue }
         info[convertionDict[key]!] = valueElements[i]
       }
       var releaseDates = Set<String>()
@@ -213,8 +214,8 @@ open class GSCRepository {
         name: LocalizedString(locale: locale, string: info["name"]!),
         series: LocalizedString(locale: locale, string: info["series"]!),
         gscProductNum: productID,
-        price: info["price"]!.replacing(try Regex("\\D"), with: "").toInt() ?? -1,
-        releaseDate: Array(releaseDates))
+        price: info["price"]?.replacing(try Regex("\\D"), with: "").toInt() ?? 0,
+        releaseDate: Array(releaseDates).sorted())
     } catch {
       print(error.localizedDescription)
       return nil

@@ -13,8 +13,8 @@ class ParserHelper {
       .replacingOccurrences(of: "年月", with: "/") // Because GSC product page have typo
       .replacingOccurrences(of: "年", with: "/")
       .replacingOccurrences(of: "月", with: "-")
-      .replacing("\\d次", with: "")
-      .replacing("[^\\d/-]", with: "")
+      .replacing(try! Regex("\\d次"), with: "")
+      .replacing(try! Regex("[^\\d/-]"), with: "")
       .split(separator: "-")
       .map { String($0) }
     return list.compactMap { element in
@@ -27,7 +27,7 @@ class ParserHelper {
       }
       switch date.count {
       case 6:
-        return "\(date.substring(from: 0, to: date.count - 1))0\(date.substring(date.count - 1))"
+        return "\(date.substring(from: 0, to: date.count - 2))0\(date.substring(date.count - 1))"
       case 7:
         return date
       default:

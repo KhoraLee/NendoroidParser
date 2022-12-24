@@ -73,7 +73,7 @@ extension Nendoroid {
     try name.join(new.name)
     try series.join(new.series)
     if price == -1 { price = new.price }
-    releaseDate.append(contentsOf: new.releaseDate)
+    if releaseDate.isEmpty { releaseDate = new.releaseDate }
     if gender == nil { gender = new.gender }
   }
 }
