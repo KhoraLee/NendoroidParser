@@ -15,7 +15,7 @@ public struct Nendoroid: Base, Hashable {
     num: String,
     name: LocalizedString = LocalizedString(),
     series: LocalizedString = LocalizedString(),
-    gscProductNum: Int,
+    gscProductNum: Int = -1,
     price: Int = -1,
     releaseDate: [String] = [],
     image: String = "",
