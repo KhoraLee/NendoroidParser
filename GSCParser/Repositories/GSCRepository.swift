@@ -19,16 +19,13 @@ open class GSCRepository {
 
   public static let shared = GSCRepository()
 
-  public func getNendoroidInfo(number: String, productID: Int) async -> Nendoroid {
-    var nendoroidJA = await getNendoroidInfo(locale: .ja, number: number, productID: productID)
-    let nendoroidEN = await getNendoroidInfo(locale: .en, number: number, productID: productID)
-    if nendoroidJA != nil, nendoroidEN == nil {
-      return nendoroidJA!
-    } else if nendoroidJA == nil, nendoroidEN != nil {
-      return nendoroidEN!
-    }
-    try? nendoroidJA!.merge(with: nendoroidEN!)
-    return nendoroidJA!
+  public func getNendoroidInfo(nendoroid: Nendoroid) async -> Nendoroid {
+    var result = nendoroid
+    let nendoroidJA = await getNendoroidInfo(locale: .ja, number: nendoroid.num, productID: nendoroid.gscProductNum)
+    let nendoroidEN = await getNendoroidInfo(locale: .en, number: nendoroid.num, productID: nendoroid.gscProductNum)
+    if nendoroidJA != nil { try? result.merge(with: nendoroidJA!) }
+    if nendoroidEN != nil { try? result.merge(with: nendoroidEN!) }
+    return result
   }
 
   public func parseNendoroidList(option: [ListParseOption] = [.announce, .range, .release]) async -> Set<Nendoroid> {
