@@ -260,6 +260,7 @@
 				B1EF811E2939E76F000E9889 /* Sources */,
 				B1EF811F2939E76F000E9889 /* Frameworks */,
 				B1EF81202939E76F000E9889 /* Resources */,
+				B183BC752956CECE003B2217 /* Lint and Format */,
 			);
 			buildRules = (
 			);
@@ -278,6 +279,7 @@
 				B1EF81342939E78E000E9889 /* Sources */,
 				B1EF81352939E78E000E9889 /* Frameworks */,
 				B1EF81362939E78E000E9889 /* CopyFiles */,
+				B183BC732956C8FD003B2217 /* Lint and Format */,
 			);
 			buildRules = (
 			);
@@ -299,6 +301,7 @@
 				B1EF813F2939EA6A000E9889 /* Headers */,
 				B1EF81402939EA6A000E9889 /* Sources */,
 				B1EF81412939EA6A000E9889 /* Frameworks */,
+				B183BC742956CEC1003B2217 /* Lint and Format */,
 			);
 			buildRules = (
 			);
@@ -371,6 +374,66 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B183BC732956C8FD003B2217 /* Lint and Format */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Lint and Format";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd BuildTools\nSDKROOT=(xcrun --sdk macosx --show-sdk-path)\n#swift package update #Uncomment this line temporarily to update the version used to the latest matching your BuildTools/Package.swift file\nswift run swiftlint --config \"$SRCROOT/.swiftlint.yml\" \"$SRCROOT/$TARGET_NAME\" # Linting\nswift run -c release swiftformat \"$SRCROOT/$TARGET_NAME\" # Formatting\n";
+		};
+		B183BC742956CEC1003B2217 /* Lint and Format */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Lint and Format";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd BuildTools\nSDKROOT=(xcrun --sdk macosx --show-sdk-path)\n#swift package update #Uncomment this line temporarily to update the version used to the latest matching your BuildTools/Package.swift file\nswift run swiftlint --config \"$SRCROOT/.swiftlint.yml\" \"$SRCROOT/$TARGET_NAME\" # Linting\nswift run -c release swiftformat \"$SRCROOT/$TARGET_NAME\" # Formatting\n";
+		};
+		B183BC752956CECE003B2217 /* Lint and Format */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Lint and Format";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd BuildTools\nSDKROOT=(xcrun --sdk macosx --show-sdk-path)\n#swift package update #Uncomment this line temporarily to update the version used to the latest matching your BuildTools/Package.swift file\nswift run swiftlint --config \"$SRCROOT/.swiftlint.yml\" \"$SRCROOT/$TARGET_NAME\" # Linting\nswift run -c release swiftformat \"$SRCROOT/$TARGET_NAME\" # Formatting\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B1EF811E2939E76F000E9889 /* Sources */ = {
