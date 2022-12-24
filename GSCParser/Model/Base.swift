@@ -7,12 +7,14 @@
 
 import Foundation
 
+// MARK: - Base
+
 public protocol Base: Codable {
-    func location() -> String
+  func location() -> String
 }
 
 extension Base {
-    public func save() throws {
-        try NendoroidDAO.shared.saveFile(data: self, to: location())
-    }
+  public func save() throws {
+    try NendoroidDAO.shared.saveFile(data: self, to: location())
+  }
 }

@@ -6,18 +6,18 @@
 //
 
 public struct NendoroidSet: Base {
-    
-    public func location() -> String {
-        return "Set/\(String(format: "Set%03d", num.toInt()!)).json"
-    }
 
-    public let num: String
-    public var setName: String
-    public var list: [String]
-    
-    public init(num: String, setName: String, list: [String]) {
-        self.num = num
-        self.setName = setName
-        self.list = list
-    }
+  public func location() -> String {
+    "Set/\(String(format: "Set%03d", num.toInt()!)).json"
+  }
+
+  public let num: String
+  public var setName: String
+  public var list: [String]
+
+  public init(num: String, setName: String, list: [String]) {
+    self.num = num
+    self.setName = setName
+    self.list = list
+  }
 }

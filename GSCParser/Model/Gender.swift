@@ -6,10 +6,10 @@
 //
 
 public enum Gender: String, Codable {
-    case male = "M"
-    case female = "F"
-    case maleAndFemale = "M&F"
-    case androgyny = "A"
-    case dayo = "DAYO"
-    case unknown = "?"
+  case male = "M"
+  case female = "F"
+  case maleAndFemale = "M&F"
+  case androgyny = "A"
+  case dayo = "DAYO"
+  case unknown = "?"
 }

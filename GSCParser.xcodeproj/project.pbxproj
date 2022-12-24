@@ -26,11 +26,9 @@
 		B1EF812A2939E770000E9889 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1EF81292939E770000E9889 /* Assets.xcassets */; };
 		B1EF812D2939E770000E9889 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1EF812C2939E770000E9889 /* Preview Assets.xcassets */; };
 		B1EF813B2939E78E000E9889 /* GSCParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EF813A2939E78E000E9889 /* GSCParser.swift */; };
-		B1EF81522939EC75000E9889 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EF81512939EC75000E9889 /* Parser.swift */; };
 		B1EF81542939ECEF000E9889 /* libGSCParser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1EF81432939EA6A000E9889 /* libGSCParser.a */; };
 		B1F880572948FC420029D548 /* libGSCParser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1EF81432939EA6A000E9889 /* libGSCParser.a */; };
 		B1FDF32D29449B78004083A0 /* ParserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FDF32C29449B78004083A0 /* ParserHelper.swift */; };
-		B1FDF32F294785DC004083A0 /* Nendoroid+Merge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FDF32E294785DC004083A0 /* Nendoroid+Merge.swift */; };
 		B1FDF3322948F73A004083A0 /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = B1FDF3312948F73A004083A0 /* ArgumentParser */; };
 /* End PBXBuildFile section */
 
@@ -85,10 +83,8 @@
 		B1EF81382939E78E000E9889 /* GSCParser-CLI */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "GSCParser-CLI"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1EF813A2939E78E000E9889 /* GSCParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSCParser.swift; sourceTree = "<group>"; };
 		B1EF81432939EA6A000E9889 /* libGSCParser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGSCParser.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		B1EF81512939EC75000E9889 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		B1EF81572939ED34000E9889 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B1FDF32C29449B78004083A0 /* ParserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserHelper.swift; sourceTree = "<group>"; };
-		B1FDF32E294785DC004083A0 /* Nendoroid+Merge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Nendoroid+Merge.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +136,6 @@
 			children = (
 				B11CE9AF293A078700C3B063 /* String+Additions.swift */,
 				B11CE9C129434A3000C3B063 /* UnicodeScalar+EAW.swift */,
-				B1FDF32E294785DC004083A0 /* Nendoroid+Merge.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -152,6 +147,14 @@
 				B185EA6A294490F000A3F069 /* GSCRepository.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		B183BC772956D392003B2217 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				B11CE9AC2939FC3400C3B063 /* NendoroidDAO.swift */,
+			);
+			path = Persistence;
 			sourceTree = "<group>";
 		};
 		B185EA69294490DE00A3F069 /* Routers */ = {
@@ -215,12 +218,11 @@
 		B1EF81442939EA6A000E9889 /* GSCParser */ = {
 			isa = PBXGroup;
 			children = (
-				B1FDF32B29449B4E004083A0 /* Utilities */,
-				B11CE9AC2939FC3400C3B063 /* NendoroidDAO.swift */,
 				B11CE9AE293A05C800C3B063 /* Extensions */,
 				B11CE9A32939F55200C3B063 /* Model */,
+				B183BC772956D392003B2217 /* Persistence */,
 				B11CE9BB2942404800C3B063 /* Repositories */,
-				B1EF81512939EC75000E9889 /* Parser.swift */,
+				B1FDF32B29449B4E004083A0 /* Utilities */,
 			);
 			path = GSCParser;
 			sourceTree = "<group>";
@@ -465,12 +467,10 @@
 				B11CE9A52939F56100C3B063 /* Nendoroid.swift in Sources */,
 				B11CE9C229434A3000C3B063 /* UnicodeScalar+EAW.swift in Sources */,
 				B11CE9AD2939FC3400C3B063 /* NendoroidDAO.swift in Sources */,
-				B1EF81522939EC75000E9889 /* Parser.swift in Sources */,
 				B11CE9B4293A446200C3B063 /* Base.swift in Sources */,
 				B11CE9B2293A0A5600C3B063 /* LocalizedString.swift in Sources */,
 				B11CE9AB2939FB5600C3B063 /* NendoroidSet.swift in Sources */,
 				B11CE9BE2942406B00C3B063 /* GSCRouter.swift in Sources */,
-				B1FDF32F294785DC004083A0 /* Nendoroid+Merge.swift in Sources */,
 				B185EA6B294490F000A3F069 /* GSCRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

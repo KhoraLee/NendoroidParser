@@ -6,8 +6,8 @@
 //
 
 public enum LanguageCode {
-    case ja
-    case en
-    case ko
+  case ja
+  case en
+  case ko
 //    case zh
 }
