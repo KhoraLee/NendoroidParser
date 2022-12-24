@@ -27,28 +27,6 @@ open class NendoroidDAO {
     return try loadFile(at: url)
   }
 
-  open func getAllNendoroidNums() throws -> [String] {
-    var nendoList: [String] = []
-    let folders = try fm.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
-      .filter { $0.hasDirectoryPath }
-      .filter { $0.lastPathComponent != "Set" }
-      .sorted(by: { $0.lastPathComponent < $1.lastPathComponent })
-    try folders.forEach { folder in
-      let nendoroids = try fm.contentsOfDirectory(at: folder, includingPropertiesForKeys: nil)
-        .filter { $0.pathExtension == "json" }
-        .map { $0.deletingPathExtension() }
-        .map { $0.lastPathComponent }
-        .sorted()
-      nendoList.append(contentsOf: nendoroids)
-    }
-    return nendoList
-  }
-
-  // TODO: Implement after creating csv reader
-//    func loadAllNendoroidSet() throws -> [NendoroidSet] {
-//
-//    }
-
   // MARK: Public
 
   public static let shared = NendoroidDAO()
