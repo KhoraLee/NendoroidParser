@@ -11,8 +11,8 @@ import GSCParser
 
 let version = "1.0.0"
 
-struct GSCParser: ParsableCommand {
-    mutating func run() throws {
-        
+@main struct GSCParser: AsyncParsableCommand {
+    mutating func run() async throws {
+
     }
 }
