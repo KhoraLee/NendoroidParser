@@ -32,26 +32,31 @@ open class GSCRepository {
   }
 
   public func parseNendoroidList(option: [ListParseOption] = [.announce, .range, .release]) async -> Set<Nendoroid> {
-    var list = Set<Nendoroid>()
-    if option.contains(.announce) {
-      list.formUnion(await getNendoroidListbyYear(locale: .ja, by: .announce))
-      list.formUnion(await getNendoroidListbyYear(locale: .en, by: .announce))
+    await withTaskGroup(of: Set<Nendoroid>.self) { group in
+      var list = Set<Nendoroid>()
+      if option.contains(.announce) {
+        group.addTask { await self.getNendoroidListbyYear(locale: .ja, by: .announce) }
+        group.addTask { await self.getNendoroidListbyYear(locale: .en, by: .announce) }
+      }
+      if option.contains(.release) {
+        group.addTask { await self.getNendoroidListbyYear(locale: .ja, by: .release) }
+        group.addTask { await self.getNendoroidListbyYear(locale: .en, by: .release) }
+      }
+      if option.contains(.range) {
+        group.addTask { await self.getNendoroidListbyRange(locale: .ja) }
+        group.addTask { await self.getNendoroidListbyRange(locale: .en) }
+      }
+      // 1522-DX is missing on all three above. So need to added manually
+      list.insert(Nendoroid(
+        num: "1522-DX",
+        gscProductNum: 10257,
+        image: "https://images.goodsmile.info/cgm/images/product/20201020/10257/77495/thumb/878c6adf472a36a232fdb8085534dd4b.jpg"))
+      for await sets in group {
+        list.formUnion(sets)
+      }
+      // TODO: There is some nendoroids that have different gsc product num for each locale. So need to deal with them. (ex, 1982 -> ja: 13448, en: 13449)
+      return list
     }
-    if option.contains(.release) {
-      list.formUnion(await getNendoroidListbyYear(locale: .ja, by: .release))
-      list.formUnion(await getNendoroidListbyYear(locale: .en, by: .release))
-    }
-    if option.contains(.range) {
-      list.formUnion(await getNendoroidListbyRange(locale: .ja))
-      list.formUnion(await getNendoroidListbyRange(locale: .en))
-    }
-    // 1522-DX is missing on all three above. So need to added manually
-    list.insert(Nendoroid(
-      num: "1522-DX",
-      gscProductNum: 10257,
-      image: "https://images.goodsmile.info/cgm/images/product/20201020/10257/77495/thumb/878c6adf472a36a232fdb8085534dd4b.jpg"))
-    // TODO: There is some nendoroids that have different gsc product num for each locale. So need to deal with them. (ex, 1982 -> ja: 13448, en: 13449)
-    return list
   }
 
   // MARK: Private
@@ -69,42 +74,60 @@ open class GSCRepository {
   ]
 
   private func getNendoroidListbyRange(locale: LanguageCode) async -> Set<Nendoroid> {
-    var list = Set<Nendoroid>()
-    for i in 1...21 {
-      do {
-        let range = String(format: "%03d-%d", (i - 1) * 100 + (i == 1 ? 0 : 1), i * 100)
-        let request = AF.request(GSCRouter.byRange(locale: locale, range: range)).serializingString()
-        let doc = try SwiftSoup.parse(await request.value)
-        let elements = try doc.select("div.hitItem").select("div > a")
-        for e in elements {
-          guard let nendoroid = try? parseBaesNendoroid(locale: locale, element: e) else { continue }
-          list.insert(nendoroid)
+    await withTaskGroup(of: Set<Nendoroid>.self) { group in
+      var nendoroids = Set<Nendoroid>()
+      for i in 1...21 {
+        group.addTask {
+          var list = Set<Nendoroid>()
+          do {
+            let range = String(format: "%03d-%d", (i - 1) * 100 + (i == 1 ? 0 : 1), i * 100)
+            let request = AF.request(GSCRouter.byRange(locale: locale, range: range)).serializingString()
+            let doc = try SwiftSoup.parse(await request.value)
+            let elements = try doc.select("div.hitItem").select("div > a")
+            for e in elements {
+              guard let nendoroid = try? self.parseBaesNendoroid(locale: locale, element: e) else { continue }
+              list.insert(nendoroid)
+            }
+          } catch {
+            print(error.localizedDescription)
+          }
+          return list
         }
-      } catch {
-        print(error.localizedDescription)
       }
+      for await list in group {
+        nendoroids.formUnion(list)
+      }
+      return nendoroids
     }
-    return list
   }
 
   private func getNendoroidListbyYear(locale: LanguageCode, by type: GSCRouter.SortType) async -> Set<Nendoroid> {
-    var list = Set<Nendoroid>()
-    for year in 2005...2024 {
-      do {
-        let request = AF.request(GSCRouter.byYear(locale: locale, type: type, year: year)).serializingString()
-        let doc = try SwiftSoup.parse(await request.value)
-        let elements = try doc
-          .select("[class=\"hitItem nendoroid nendoroid_series\"], [class=\"hitItem nendoroid_series\"]")
-          .select("div > a")
-        for e in elements {
-          guard let nendoroid = try? parseBaesNendoroid(locale: locale, element: e) else { continue }
-          list.insert(nendoroid)
+    await withTaskGroup(of: Set<Nendoroid>.self) { group in
+      var nendoroids = Set<Nendoroid>()
+      for year in 2005...2024 {
+        group.addTask {
+          var list = Set<Nendoroid>()
+          do {
+            let request = AF.request(GSCRouter.byYear(locale: locale, type: type, year: year)).serializingString()
+            let doc = try SwiftSoup.parse(await request.value)
+            let elements = try doc
+              .select("[class=\"hitItem nendoroid nendoroid_series\"], [class=\"hitItem nendoroid_series\"]")
+              .select("div > a")
+            for e in elements {
+              guard let nendoroid = try? self.parseBaesNendoroid(locale: locale, element: e) else { continue }
+              list.insert(nendoroid)
+            }
+          } catch {
+            print(error.localizedDescription)
+          }
+          return list
         }
-      } catch {
-        print(error.localizedDescription)
       }
+      for await list in group {
+        nendoroids.formUnion(list)
+      }
+      return nendoroids
     }
-    return list
   }
 
   private func parseBaesNendoroid(locale: LanguageCode, element: Element) throws -> Nendoroid? {
