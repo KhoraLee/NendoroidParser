@@ -68,7 +68,7 @@ public struct Nendoroid: Base, Hashable {
 }
 
 extension Nendoroid {
-  mutating func merge(with new: Nendoroid) throws {
+  public mutating func merge(with new: Nendoroid) throws {
     if num != new.num { return }
     try name.join(new.name)
     try series.join(new.series)
