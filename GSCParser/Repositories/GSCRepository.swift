@@ -194,12 +194,16 @@ open class GSCRepository {
           info["price"] = "3909"
         case "378b":
           info["price"] = "5500"
+        case "382":
+          info["price"] = "4629"
         case "652":
           info["price"] = "4500"
         case "819":
           info["price"] = "4800"
         case "1291":
           info["price"] = "5500"
+        case "1524":
+          info["price"] = "5700"
         case "1672b":
           info["price"] = "5900"
         default:
