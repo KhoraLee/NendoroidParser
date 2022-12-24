@@ -9,7 +9,7 @@ public struct LocalizedString: Codable {
 
   // MARK: Lifecycle
 
-  public init() {}
+  public init() { }
 
   public init(locale: LanguageCode, string: String) {
     switch locale {

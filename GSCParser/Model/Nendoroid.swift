@@ -5,6 +5,8 @@
 //  Created by 이승윤 on 2022/12/02.
 //
 
+// MARK: - Nendoroid
+
 public struct Nendoroid: Base, Hashable {
 
   // MARK: Lifecycle
@@ -18,7 +20,8 @@ public struct Nendoroid: Base, Hashable {
     releaseDate: [String] = [],
     image: String = "",
     gender: Gender? = nil,
-    set: Int? = nil) {
+    set: Int? = nil)
+  {
     self.num = num
     self.name = name
     self.series = series

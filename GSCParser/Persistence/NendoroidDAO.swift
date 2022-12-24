@@ -30,14 +30,14 @@ open class NendoroidDAO {
   open func getAllNendoroidNums() throws -> [String] {
     var nendoList: [String] = []
     let folders = try fm.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
-      .filter({ $0.hasDirectoryPath })
-      .filter({ $0.lastPathComponent != "Set" })
+      .filter { $0.hasDirectoryPath }
+      .filter { $0.lastPathComponent != "Set" }
       .sorted(by: { $0.lastPathComponent < $1.lastPathComponent })
     try folders.forEach { folder in
       let nendoroids = try fm.contentsOfDirectory(at: folder, includingPropertiesForKeys: nil)
-        .filter({ $0.pathExtension == "json" })
-        .map({ $0.deletingPathExtension() })
-        .map({ $0.lastPathComponent })
+        .filter { $0.pathExtension == "json" }
+        .map { $0.deletingPathExtension() }
+        .map { $0.lastPathComponent }
         .sorted()
       nendoList.append(contentsOf: nendoroids)
     }
@@ -65,15 +65,13 @@ open class NendoroidDAO {
   let fm = FileManager.default
 
   var path: URL {
-    get {
-      if NendoroidDAO.ppath == nil {
-        fatalError("NendoroidDAO is used before setup")
-      }
-      return NendoroidDAO.ppath!
+    if NendoroidDAO.ppath == nil {
+      fatalError("NendoroidDAO is used before setup")
     }
+    return NendoroidDAO.ppath!
   }
 
-  func saveFile<T>(data: T, to path: String) throws where T: Encodable {
+  func saveFile(data: some Encodable, to path: String) throws {
     let url = self.path.appending(path: path)
     let encoder = JSONEncoder()
     encoder.outputFormatting = [.prettyPrinted, .withoutEscapingSlashes, .sortedKeys]

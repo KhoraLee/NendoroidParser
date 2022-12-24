@@ -21,7 +21,7 @@ extension String {
       return ""
     }
 
-    let startIndex = index(self.startIndex, offsetBy: from)
+    let startIndex = index(startIndex, offsetBy: from)
     let endIndex = index(self.startIndex, offsetBy: to + 1)
 
     return String(self[startIndex ..< endIndex])
@@ -32,7 +32,7 @@ extension String {
       return ""
     }
 
-    let startIndex = index(self.startIndex, offsetBy: from)
+    let startIndex = index(startIndex, offsetBy: from)
     let endIndex = index(self.startIndex, offsetBy: count)
     return String(self[startIndex ..< endIndex])
   }
@@ -46,6 +46,5 @@ extension String {
         return UnicodeScalar($0.value - 0xfee0)!
       }
     }.map(Character.init))
-
   }
 }

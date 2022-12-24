@@ -22,9 +22,9 @@ open class GSCRepository {
   public func getNendoroidInfo(number: String, productID: Int) async -> Nendoroid {
     var nendoroidJA = await getNendoroidInfo(locale: .ja, number: number, productID: productID)
     let nendoroidEN = await getNendoroidInfo(locale: .en, number: number, productID: productID)
-    if nendoroidJA != nil && nendoroidEN == nil {
+    if nendoroidJA != nil, nendoroidEN == nil {
       return nendoroidJA!
-    } else if nendoroidJA == nil && nendoroidEN != nil {
+    } else if nendoroidJA == nil, nendoroidEN != nil {
       return nendoroidEN!
     }
     try? nendoroidJA!.merge(with: nendoroidEN!)

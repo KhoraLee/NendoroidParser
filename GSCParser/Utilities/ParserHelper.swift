@@ -33,7 +33,6 @@ class ParserHelper {
       default:
         return nil
       }
-
     }
   }
 }
